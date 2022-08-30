@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('body');
+            //lets's define the forign ID
+            //the constrained say's that this field will refer to the id field ont this category tble
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }
